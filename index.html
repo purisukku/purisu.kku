@@ -12,13 +12,24 @@
         overflow: hidden;
       }
       iframe {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
         border: none;
+        display: block;
       }
     </style>
   </head>
   <body>
-    <iframe src="https://gen.ai.kku.ac.th/public/chat?m=44f5952a-0791-4074-81cd-ee2053148528&t=kku-knowledge"></iframe>
+    <iframe id="chatFrame" src="https://gen.ai.kku.ac.th/public/chat?m=44f5952a-0791-4074-81cd-ee2053148528&t=kku-knowledge"></iframe>
+
+    <script>
+      function resizeIframe() {
+        const iframe = document.getElementById('chatFrame');
+        iframe.style.height = window.innerHeight + 'px';
+      }
+
+      // เรียกตอนโหลดและเวลาเปลี่ยนขนาดหน้าจอ
+      window.addEventListener('load', resizeIframe);
+      window.addEventListener('resize', resizeIframe);
+    </script>
   </body>
 </html>
